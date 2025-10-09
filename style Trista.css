@@ -11,7 +11,7 @@ p{
     text-align: center;
     line-height: 1.5;
     /* Style from t.css */
-    color: white;
+    color: #ffffff;
     animation: fadeIn 3s ease;
 }
 
@@ -573,4 +573,5 @@ input:checked + .toggle-slider:before {
   }
 }
 /* === END: Landscape Phone Fix === */
+
 
