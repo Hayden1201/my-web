@@ -476,7 +476,7 @@ input:checked + .toggle-slider:before {
   }
 
   .text-below-cake {
-    bottom: 22%; /* Move text up to avoid controls */
+    bottom: 28%; /* Move text up to avoid cake and controls */
     padding: 0 10px; /* Add padding to prevent text from touching screen edges */
   }
 
@@ -524,7 +524,7 @@ input:checked + .toggle-slider:before {
   }
 
   .text-below-cake {
-    bottom: 30%; /* Move text higher to avoid controls */
+    bottom: 35%; /* Move text higher to avoid cake and controls */
   }
 
   #cake-container {
