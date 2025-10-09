@@ -1,0 +1,478 @@
+h1{
+    font-size: 3em;
+    text-align: center;
+    /* Style from t.css */
+    color: #ff5f8f;
+    text-shadow: 2px 2px #fff;
+    animation: fadeIn 2s ease;
+}
+p{
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1.5;
+    /* Style from t.css */
+    color: #778af5;
+    animation: fadeIn 3s ease;
+}
+
+.heading-above-cake {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100%;
+}
+
+.text-below-cake {
+    position: fixed;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100%;
+}
+
+
+/* === START: Cake Animation Styles === */
+#cake-container {
+    position: fixed;
+    bottom: 10%; /* Position above the controls */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20; /* Above text and stars, below controls */
+    width: 200px;
+    height: 500px;
+    pointer-events: none; /* Allow clicking through the container */
+}
+
+#cake {
+    display: block;
+    position: relative;
+    margin: -10em auto 0 auto;
+}
+
+.candle {
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    top: 228px;
+    left: 50%;
+    margin-left: -2.4px;
+    margin-top: -8.33333333px;
+    width: 5px;
+    height: 35px;
+    transform: translateY(-300px);
+    backface-visibility: hidden;
+    animation: in 500ms 6s ease-out forwards;
+}
+
+.candle:after,
+.candle:before {
+    background: rgba(255, 0, 0, 0.4);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2.22222222px;
+}
+
+.candle:after {
+    top: 25%;
+    left: 0;
+}
+
+.candle:before {
+    top: 45%;
+    left: 0;
+}
+
+.fire {
+    border-radius: 100%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    margin-left: -2.6px;
+    width: 6.66666667px;
+    height: 18px;
+}
+
+.fire:nth-child(1) {
+    animation: fire 2s 6.5s infinite;
+}
+
+.fire:nth-child(2) {
+    animation: fire 1.5s 6.5s infinite;
+}
+
+.fire:nth-child(3) {
+    animation: fire 1s 6.5s infinite;
+}
+
+.fire:nth-child(4) {
+    animation: fire 0.5s 6.5s infinite;
+}
+
+.fire:nth-child(5) {
+    animation: fire 0.2s 6.5s infinite;
+}
+
+@keyframes fire {
+    0%, 100% {
+        background: rgba(254, 248, 97, 0.5);
+        box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        background: rgba(255, 50, 0, 0.1);
+        box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+        transform: translateY(-20px) scale(0);
+    }
+}
+
+@keyframes in {
+    to {
+        transform: translateY(0);
+    }
+}
+/* === END: Cake Animation Styles === */
+
+/* === START: Flower Decoration Styles (from t.css) === */
+.flower {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 5; /* Ensure flowers are behind text/cake but above background */
+}
+
+.flower.left  { left: 6%; }
+.flower.right { right: 6%; }
+
+.flower .petal {
+  position: absolute;
+  width: 40px; /* Slightly wider for a fuller look */
+  height: 65px; /* Slightly taller */
+  top: 50%;
+  left: 50%;
+  /* More realistic petal color gradient */
+  background: linear-gradient(to bottom, #ffdde1, #ff8a9d);
+  border-radius: 50% 50% 20px 20px; /* More organic shape */
+  transform-origin: 50% 100%; /* Set pivot to the bottom center */
+  /* Corrected transform to properly center the petals */
+  transform: translateX(-50%) translateY(-100%);
+  box-shadow: 0 8px 12px rgba(200, 95, 120, 0.15);
+  z-index: 1;
+  opacity: 0;
+  /* New fan-open animation */
+  animation: fanOpen 0.8s cubic-bezier(.22,1,.36,1) forwards, 
+             petalFloat 4s ease-in-out 0.8s infinite;
+}
+
+/* Stagger the animation and set the final rotation for each of the 8 petals */
+.flower .petal:nth-child(1) { --petal-rotation: 0deg;   animation-delay: 0.8s, 0.8s; }
+.flower .petal:nth-child(2) { --petal-rotation: 45deg;  animation-delay: 0.85s, 0.85s; }
+.flower .petal:nth-child(3) { --petal-rotation: 90deg;  animation-delay: 0.9s, 0.9s; }
+.flower .petal:nth-child(4) { --petal-rotation: 135deg; animation-delay: 0.95s, 0.95s; }
+.flower .petal:nth-child(5) { --petal-rotation: 180deg; animation-delay: 1.0s, 1.0s; }
+.flower .petal:nth-child(6) { --petal-rotation: 225deg; animation-delay: 1.05s, 1.05s; }
+.flower .petal:nth-child(7) { --petal-rotation: 270deg; animation-delay: 1.1s, 1.1s; }
+.flower .petal:nth-child(8) { --petal-rotation: 315deg; animation-delay: 1.15s, 1.15s; }
+
+
+.flower .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle,#fff7b3,#ffdf6b);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.3s forwards; /* Fade in after petals open */
+}
+/* === END: Flower Decoration Styles === */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  /* New, warmer background gradient */
+  background: linear-gradient(to bottom right, #e33232, #fcb69f);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  transition: background 1.5s ease;
+}
+
+#container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index:1; /* Ensures starfield is above body background */
+  /* Add this to make the container transparent */
+  background-color: transparent;
+}
+
+/* Themes - NOTE: These will now only change the glow/controls, not the main background */
+body.theme-molten {
+  /* background rule removed */
+}
+body.theme-molten .glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 100, 0, 0.05) 0%,
+    rgba(200, 50, 0, 0.05) 50%,
+    transparent 65%
+  );
+}
+body.theme-molten #controls {
+  background: rgba(50, 20, 10, 0.3);
+  border-color: rgba(255, 120, 50, 0.4);
+}
+body.theme-molten .theme-btn.active,
+body.theme-molten .action-btn.active {
+  background: rgba(255, 100, 0, 0.5);
+  border-color: rgba(255, 100, 0, 0.7);
+}
+body.theme-molten .toggle-slider {
+  background: rgba(180, 80, 40, 0.4);
+}
+body.theme-molten input:checked + .toggle-slider {
+  background-color: rgba(255, 100, 0, 0.6);
+}
+body.theme-molten .toggle-slider:before {
+  box-shadow: 0 0 8px rgba(255, 150, 50, 0.8);
+}
+
+body.theme-cosmic {
+  /* background rule removed */
+}
+body.theme-cosmic .glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(147, 112, 219, 0.05) 0%,
+    rgba(75, 0, 130, 0.05) 50%,
+    transparent 65%
+  );
+}
+body.theme-cosmic #controls {
+  background: rgba(40, 20, 60, 0.3);
+  border-color: rgba(147, 112, 219, 0.4);
+}
+body.theme-cosmic .theme-btn.active,
+body.theme-cosmic .action-btn.active {
+  background: rgba(147, 112, 219, 0.5);
+  border-color: rgba(147, 112, 219, 0.7);
+}
+body.theme-cosmic .toggle-slider {
+  background: rgba(147, 112, 219, 0.4);
+}
+body.theme-cosmic input:checked + .toggle-slider {
+  background-color: rgba(147, 112, 219, 0.6);
+}
+body.theme-cosmic .toggle-slider:before {
+  box-shadow: 0 0 8px rgba(170, 130, 230, 0.8);
+}
+body.theme-emerald .glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 255, 127, 0.05) 0%,
+    rgba(46, 139, 87, 0.05) 50%,
+    transparent 65%
+  );
+}
+body.theme-emerald #controls {
+  background: rgba(20, 60, 40, 0.3);
+  border-color: rgba(60, 179, 113, 0.4);
+}
+body.theme-emerald .theme-btn.active,
+body.theme-emerald .action-btn.active {
+  background: rgba(60, 179, 113, 0.5);
+  border-color: rgba(60, 179, 113, 0.7);
+}
+body.theme-emerald .toggle-slider {
+  background: rgba(60, 179, 113, 0.4);
+}
+body.theme-emerald input:checked + .toggle-slider {
+  background-color: rgba(60, 179, 113, 0.6);
+}
+body.theme-emerald .toggle-slider:before {
+  box-shadow: 0 0 8px rgba(100, 200, 150, 0.8);
+}
+
+/* Glow overlay */
+.glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.75;
+  transition: background 1.5s ease;
+}
+
+/* Controls */
+#controls {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+  border: 1px solid;
+  border-radius: 16px;
+  padding: 10px 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  transition: background 1.5s ease, border-color 1.5s ease;
+}
+
+#theme-selector,
+#action-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-btn,
+.action-btn {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.theme-btn:hover,
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.theme-btn.active,
+.action-btn.active {
+  color: #fff;
+  font-weight: 500;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-option label[for='animateToggle'] {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+.toggle-slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}
+
+/* === START: Keyframe Animations (from t.css) === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* New animation for the fan-open effect */
+@keyframes fanOpen {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%) rotate(0deg) scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-100%) rotate(var(--petal-rotation)) scaleY(1);
+  }
+}
+
+/* Remove the old bloom animation */
+/*
+@keyframes bloom {
+  from { opacity: 0; transform: translateY(0) scale(.4); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+*/
+
+@keyframes petalFloat {
+  0%, 100% { transform: translateX(-50%) translateY(-100%) rotate(var(--petal-rotation)) translateY(0) scale(1); }
+  50%  { transform: translateX(-50%) translateY(-100%) rotate(var(--petal-rotation)) translateY(-5px) scale(1.02); }
+}
+/* === END: Keyframe Animations === */
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  #controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    width: auto;
+    bottom: 15px;
+  }
+  .separator {
+    display: none;
+  }
+}
