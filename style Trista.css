@@ -481,7 +481,7 @@ input:checked + .toggle-slider:before {
   }
 
   #cake-container {
-    bottom: 8%; /* Adjust cake position */
+    bottom: 18%; /* Move cake higher in portrait mode */
     transform: translateX(-50%) scale(0.8); /* Make the cake smaller */
     transform-origin: bottom center;
   }
@@ -495,7 +495,6 @@ input:checked + .toggle-slider:before {
   .flower.right {
     right: -5%; /* Adjust position to keep it visible */
   }
-
   #controls {
     flex-wrap: wrap;
     justify-content: center;
@@ -573,5 +572,3 @@ input:checked + .toggle-slider:before {
   }
 }
 /* === END: Landscape Phone Fix === */
-
-
