@@ -464,12 +464,44 @@ input:checked + .toggle-slider:before {
 
 /* Responsive */
 @media (max-width: 768px) {
+  h1 {
+    font-size: 10vw; /* Scale font size with screen width */
+  }
+  p {
+    font-size: 4vw; /* Scale font size with screen width */
+  }
+
+  .heading-above-cake {
+    top: 18%; /* Move heading up a bit */
+  }
+
+  .text-below-cake {
+    bottom: 22%; /* Move text up to avoid controls */
+    padding: 0 10px; /* Add padding to prevent text from touching screen edges */
+  }
+
+  #cake-container {
+    bottom: 8%; /* Adjust cake position */
+    transform: translateX(-50%) scale(0.8); /* Make the cake smaller */
+    transform-origin: bottom center;
+  }
+
+  .flower {
+    transform: translateY(-50%) scale(0.7); /* Make flowers smaller */
+  }
+  .flower.left {
+    left: -5%; /* Adjust position to keep it visible */
+  }
+  .flower.right {
+    right: -5%; /* Adjust position to keep it visible */
+  }
+
   #controls {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 10px;
-    width: auto;
+    width: 95%; /* Use more of the screen width */
     bottom: 15px;
   }
   .separator {
