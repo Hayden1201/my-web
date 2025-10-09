@@ -512,34 +512,55 @@ input:checked + .toggle-slider:before {
 /* === START: Landscape Phone Fix === */
 @media (max-height: 500px) and (orientation: landscape) {
   h1 {
-    font-size: 7vh; /* Use viewport height for font size */
+    font-size: 6vh; /* Further reduce font size */
   }
   p {
-    font-size: 3.5vh;
+    font-size: 3vh;
     line-height: 1.2;
   }
 
   .heading-above-cake {
-    top: 15%;
+    top: 12%; /* Move heading higher */
   }
 
   .text-below-cake {
-    bottom: 28%; /* Move text up to avoid controls */
+    bottom: 30%; /* Move text higher to avoid controls */
   }
 
   #cake-container {
-    bottom: 0;
-    transform: translateX(-50%) scale(0.6); /* Make the cake much smaller */
+    bottom: 5%; /* Adjust cake position */
+    transform: translateX(-50%) scale(0.55); /* Make the cake even smaller */
+    transform-origin: bottom center;
   }
 
   .flower {
-    transform: translateY(-50%) scale(0.5); /* Make flowers smaller */
+    /* Hide flowers in landscape to save space and prevent overlap */
+    display: none;
   }
 
   #controls {
-    bottom: 10px; /* Lower the controls */
-    padding: 5px 10px;
+    /* Ensure controls are also adapted for landscape */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+    width: 95%;
+    bottom: 10px;
+  }
+
+  .theme-btn,
+  .action-btn {
+    padding: 4px 10px; /* Smaller buttons */
+    font-size: 11px;
+  }
+
+  .toggle-option {
     gap: 8px;
+  }
+
+  .toggle-option label[for='animateToggle'],
+  .toggle-option label[for='freezeToggle'] {
+    font-size: 11px;
   }
 }
 /* === END: Landscape Phone Fix === */
