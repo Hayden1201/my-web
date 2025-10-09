@@ -528,7 +528,7 @@ input:checked + .toggle-slider:before {
 
   #cake-container {
     /* Corrected: Use a negative bottom value to pull the tall container down */
-    bottom: 40%; 
+    bottom: 25%; 
     transform: translateX(-50%) scale(0.55);
     transform-origin: bottom center;
   }
@@ -572,3 +572,4 @@ input:checked + .toggle-slider:before {
   }
 }
 /* === END: Landscape Phone Fix === */
+
