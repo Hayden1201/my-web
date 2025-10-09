@@ -535,8 +535,16 @@ input:checked + .toggle-slider:before {
   }
 
   .flower {
-    /* Hide flowers in landscape to save space and prevent overlap */
-    display: none;
+    /* Bring flowers back, but smaller and repositioned for landscape */
+    top: 45%; /* Nudge them down slightly */
+    transform: translateY(-50%) scale(0.45);
+  }
+
+  .flower.left {
+    left: 1%; /* Move closer to the edge */
+  }
+  .flower.right {
+    right: 1%; /* Move closer to the edge */
   }
 
   #controls {
