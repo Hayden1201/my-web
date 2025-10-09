@@ -533,15 +533,20 @@ input:checked + .toggle-slider:before {
     transform: translateX(-50%) scale(0.55);
     transform-origin: bottom center;
   }
+
   .flower {
+    /* Bring flowers back, but smaller and repositioned for landscape */
+    top: 45%; /* Nudge them down slightly */
     transform: translateY(-50%) scale(0.45);
   }
+
   .flower.left {
     left: 1%; /* Move closer to the edge */
   }
   .flower.right {
     right: 1%; /* Move closer to the edge */
   }
+
   #controls {
     /* Ensure controls are also adapted for landscape */
     flex-wrap: wrap;
@@ -568,4 +573,3 @@ input:checked + .toggle-slider:before {
   }
 }
 /* === END: Landscape Phone Fix === */
-
