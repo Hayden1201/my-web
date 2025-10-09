@@ -528,8 +528,9 @@ input:checked + .toggle-slider:before {
   }
 
   #cake-container {
-    bottom: 5%; /* Adjust cake position */
-    transform: translateX(-50%) scale(0.55); /* Make the cake even smaller */
+    /* Corrected: Use a negative bottom value to pull the tall container down */
+    bottom: -15%; 
+    transform: translateX(-50%) scale(0.55);
     transform-origin: bottom center;
   }
 
