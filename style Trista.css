@@ -508,3 +508,38 @@ input:checked + .toggle-slider:before {
     display: none;
   }
 }
+
+/* === START: Landscape Phone Fix === */
+@media (max-height: 500px) and (orientation: landscape) {
+  h1 {
+    font-size: 7vh; /* Use viewport height for font size */
+  }
+  p {
+    font-size: 3.5vh;
+    line-height: 1.2;
+  }
+
+  .heading-above-cake {
+    top: 15%;
+  }
+
+  .text-below-cake {
+    bottom: 28%; /* Move text up to avoid controls */
+  }
+
+  #cake-container {
+    bottom: 0;
+    transform: translateX(-50%) scale(0.6); /* Make the cake much smaller */
+  }
+
+  .flower {
+    transform: translateY(-50%) scale(0.5); /* Make flowers smaller */
+  }
+
+  #controls {
+    bottom: 10px; /* Lower the controls */
+    padding: 5px 10px;
+    gap: 8px;
+  }
+}
+/* === END: Landscape Phone Fix === */
