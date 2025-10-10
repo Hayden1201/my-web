@@ -411,31 +411,18 @@ function createParticleTexture() {
   canvas.width = size;
   canvas.height = size;
   const context = canvas.getContext('2d');
-
   const centerX = size / 2;
   const centerY = size / 2;
-  const outerRadius = size * 0.45;
-  const innerRadius = size * 0.2;
-  const numPoints = 5;
+  const radius = size / 2;
 
-  context.beginPath();
-  context.moveTo(centerX, centerY - outerRadius);
-  for (let i = 0; i < numPoints; i++) {
-    const outerAngle = (i / numPoints) * Math.PI * 2 - Math.PI / 2;
-    context.lineTo(centerX + outerRadius * Math.cos(outerAngle), centerY + outerRadius * Math.sin(outerAngle));
-    const innerAngle = outerAngle + Math.PI / numPoints;
-    context.lineTo(centerX + innerRadius * Math.cos(innerAngle), centerY + innerRadius * Math.sin(innerAngle));
-  }
-  context.closePath();
-
-  const gradient = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, outerRadius);
+  const gradient = context.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius);
   gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-  gradient.addColorStop(0.3, 'rgba(255, 255, 220, 0.9)');
-  gradient.addColorStop(0.6, 'rgba(255, 200, 150, 0.6)');
+  gradient.addColorStop(0.2, 'rgba(255, 255, 220, 0.8)');
+  gradient.addColorStop(0.5, 'rgba(255, 200, 150, 0.5)');
   gradient.addColorStop(1, 'rgba(255, 150, 0, 0)');
 
   context.fillStyle = gradient;
-  context.fill();
+  context.fillRect(0, 0, size, size);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.needsUpdate = true;
